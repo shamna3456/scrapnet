@@ -1,0 +1,27 @@
+{% extends 'temp/user_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user view certificate request</title>
+</head>
+<body>
+<h2> Certificate </h2>
+      <table border="1" class="table table-bordered table-striped">
+		<tr>
+			<th>RTO </th>
+			<th>vehicle</th>
+            <th>status</th>
+		</tr>
+        {% for i in x %}
+		<tr>
+			<td>{{ i.rto_id}}</td>
+			<td>{{ i.vehicle_id }}</td>
+            <td>{{ i.status }}</td>
+		</tr>
+        {% endfor %}
+	</table>
+</body>
+</html>
+{% endblock %}

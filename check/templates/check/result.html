@@ -1,0 +1,24 @@
+{% extends 'temp/police_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>police check vehicle result</title>
+</head>
+<body>
+{#  {% if x %}#}
+    <div class="container jumbotron">
+    <a href="/check/check/" class="btn btn-dark btn-sm">Back</a><br>
+        <p>Vehicle Owner Name: <span class="text-info">{{ x.owner_name }}</span></p>
+        <p>Vehicle Number: <span class="text-info">{{ x.vehicle_no }}</span></p>
+        <p>Vehicle Expiry Date: <span class="text-info">{{ x.vehicle_expiry }}</span></p>
+        <p>No.of Suspicious activities: <span class="text-info">{{ x.suspicious_count }}</span></p>
+        {% if y %}
+    <a href="/check/send/{{ x.check_id }}" class="btn btn-warning">Send Mail</a>
+            {% endif %}
+    </div>
+{# {% endif %}#}
+</body>
+</html>
+{% endblock %}

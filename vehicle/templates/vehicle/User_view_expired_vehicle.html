@@ -1,0 +1,62 @@
+{% extends 'temp/user_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title> view expired Vehicle</title>
+</head>
+<body>
+	<h2>  View Vehicle</h2>
+	<table  class="table table-striped table-responsive">
+		<tr>
+            <th>Type</th>
+			<th>Name</th>
+			<th>Number</th>
+			<th>Color</th>
+			<th>Model</th>
+			<th>Insurance</th>
+			<th>Owner Name</th>
+			<th>Owner Phone Number</th>
+			<th>Mileage</th>
+			<th>Registration Date</th>
+			<th>Last Service Date </th>
+            <th>Expiry Date</th>
+			<th>Engine Number</th>
+			<th>photo</th>
+            <th>Pollution Certificate</th>
+
+			<th></th>
+		</tr>
+		 {% for i in x %}
+		<tr>
+           <td>{{ i.vehicle_type }}</td>
+			<td>{{ i.vehicle_name }}</td>
+			<td>{{ i.vehicle_number }}</td>
+			<td>{{ i.colour }}</td>
+			<td>{{ i.model }}</td>
+			<td>{{ i.insurance_details }}</td>
+			<td>{{ i.mileage }}</td>
+			<td>{{ i.engine_number }}</td>
+            <td>{{ i.owner_name }}</td>
+			<td>{{ i.owner_contact }}</td>
+            <td>{{ i.registration_date }}</td>
+			<td>{{ i.last_service_date }}</td>
+            <td>{{ i.expiry_date }}</td>
+            <td><a href="/static/{{ i.photo }}"><img src="/static/{{ i.photo }}"width="50px"height="100px" ></a></td>
+            <td><a href="/static/{{ i.pollution_certificate }}"><img src="/static/{{ i.pollution_certificate }}"height="100px"width="50px"> </a></td>
+
+
+
+			<td>
+                <a href="/vehicle/edit/{{ i.vehicle_id }}"class="btn btn-sm btn-warning" style="padding-left: 38px">Update</a>
+                <a href="/vehicle/delete/{{ i.vehicle_id }}" class="btn btn-sm btn-info" style="padding-left: 40px">Delete</a>
+				<a href="/certificate/add/{{ i.vehicle_id }}" class="btn btn-sm btn-warning">Send Certificate Request</a>
+				<a href="/user_scrap_request/post_screp/{{ i.vehicle_id }}" class="btn btn-sm btn-info">Send Scrap Request</a>
+			</td>
+		</tr>
+        {% endfor %}
+	</table>
+
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'temp/user_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> RTO Add certificate request</title>
+</head>
+<body>
+   <h2> Certificate Request</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <table border="1" class="table table-bordered ">
+
+                   <tr>
+			<td>RTO</td>
+			<td><select name="rto">
+                {% for i in x %}
+                <option value="{{ i.rto_id }}">{{ i.name }} - {{ i.rto_office_name }}</option>
+                {% endfor %}
+            </select></td>
+		</tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="submit">
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+</body>
+</html>
+{% endblock %}

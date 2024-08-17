@@ -1,0 +1,33 @@
+{% extends 'temp/scrapdealer_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>view ScrapDealer Request</title>
+</head>
+<body>
+	<h2> Scrap Dealer Request</h2>
+	<table border="1" class="table table-bordered table-striped">
+		<tr>
+			<th>USER Details</th>
+			<th>Scrap Request Details</th>
+			<th>RTO Details</th>
+            <th>status</th>
+			<th></th>
+		</tr>
+        {% for i in x %}
+		<tr>
+			<td>{{ i.user_scrap_request.user.name }}</td>
+			<td>{{ i.user_scrap_request.vehicle.vehicle_name }}, {{ i.user_scrap_request.vehicle.vehicle_number }}</td>
+            <td>{{ i.rto.name }}, {{ i.rto.rto_office_name }}</td>
+            <td>{{ i.status }}</td>
+			<td>
+
+			</td>
+		</tr>
+        {% endfor %}
+	</table>
+
+</body>
+</html>
+{% endblock %}

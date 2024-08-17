@@ -1,0 +1,41 @@
+{% extends 'temp/admin_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>admin edit police</title>
+</head>
+<body>
+	<div style="height: 40px"></div>
+<form method="post">
+    {% csrf_token %}
+   <table border="1" class="table table-bordered table-striped">
+   	<tr>
+   		<td>Name</td>
+   		<td><input type="text" name="name" value="{{ x.name }}" required class="form-control" ></td>
+   	</tr>
+
+   	 	<tr>
+   		<td>Place</td>
+   		<td><input type="text" name="place" value="{{ x.place }}" required class="form-control" ></td>
+   	</tr>
+   	 	<tr>
+			<td>address</td>
+			<td><input type="type" name="address" value="{{ x.address }}" required class="form-control" ></td>
+		</tr>
+		<tr>
+			<td>Phone:</td>
+			<td><input type="type" name="phone" value="{{ x.phone }}" pattern="[0-9]{10}" required class="form-control" maxlength="10" minlength="10"></td>
+		</tr>
+		<tr>
+			<td>Email:</td>
+			<td><input type="Email" name="mail" value="{{ x.email }}" required class="form-control" ></td>
+		</tr>
+
+
+   </table>
+    <input type="submit" value="Edit" class="btn btn-warning" style="margin-left: 400px">
+</form>
+</body>
+</html>
+{% endblock %}

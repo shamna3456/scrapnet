@@ -1,0 +1,36 @@
+{% extends 'temp/RTO_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>rto view user</title>
+</head>
+<body>
+	<h2> view User</h2>
+	<table border="1" class="table table-bordered table-striped">
+		<tr>
+			<th>Name</th>
+			<th>Gender</th>
+            <th>Place</th>
+			<th>Address</th>
+			<th>Email</th>
+			<th>Phone Number</th>
+			<th>User Name</th>
+		</tr>
+        {% for i in x %}
+		<tr style="height: 30px">
+			<td>{{ i.name }}</td>
+			<td>{{ i.gender }}</td>
+            <td>{{ i.place }}</td>
+			<td>{{ i.address }}</td>
+			<td>{{ i.email_id }}</td>
+			<td>{{ i.phone_number }}</td>
+			<td>{{ i.username }}</td>
+			
+		</tr>
+        {% endfor %}
+	</table>
+
+</body>
+</html>
+{% endblock %}

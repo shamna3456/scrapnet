@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrap Certificate</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 40px;
+            background: #f9f9f9;
+            color: #333;
+        }
+        .certificate-container {
+            background: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .certificate-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .certificate-details {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .signature {
+            margin-top: 30px;
+            text-align: right;
+        }
+        .signature img {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate-container">
+        <div class="certificate-header">
+            <h1>Scrap Certificate</h1>
+            <h2>{{ x.rto.name }}</h2> <!-- Placeholder for RTO name -->
+        </div>
+        <div class="certificate-details">
+            <p><strong>Vehicle Owner Name:</strong> {{ x.vehicle.owner_name }}</p>
+            <p><strong>Vehicle Number:</strong> {{ x.vehicle.vehicle_number }}</p>
+            <p><strong>Certificate Number:</strong> {{ x.certificate_no }}</p>
+            <p><strong>Issue Date:</strong> {{ x.issue_date }}</p>
+        </div>
+        <div class="signature">
+            <p><strong>Signature:</strong></p>
+            <img src="{{ signature_image }}" alt="Signature"> <!-- Placeholder for the signature image -->
+        </div>
+    </div>
+
+<script>
+    window.onload=function () {
+        window.print();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+{% extends 'temp/user_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User scrapping request</title>
+</head>
+<body>
+	<div style="height: 40px"></div>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+	<table border="1" class="table table-bordered table-striped">
+		<tr>
+			<td>Photo Side 1</td>
+			<td><input type="file" name="side1" required class="form-control"></td>
+		</tr>
+		<tr>
+			<td>Photo Side 2</td>
+			<td><input type="file" name="side2" required class="form-control" ></td>
+		</tr>
+		<tr>
+			<td>Photo Side 3</td>
+			<td><input type="file" name="side3" required class="form-control"></td>
+		</tr>
+		<tr>
+			<td>Photo Side 4</td>
+			<td><input type="file" name="side4" required class="form-control"></td>
+		</tr>
+		<tr>
+			<td>Certificate Number</td>
+			<td><input type="text" name="certifi" required class="form-control"></td>
+		</tr>
+		
+		<tr>
+			<td><input type="submit" value="submit"></td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>
+{% endblock %}

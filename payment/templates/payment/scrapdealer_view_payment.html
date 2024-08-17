@@ -1,0 +1,30 @@
+{% extends 'temp/scrapdealer_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title> view paymnet</title>
+</head>
+<body>
+	<h2 style="color: orange;text-align: center"> view Payment</h2>
+	<table border="1" class="table table-bordered">
+		<tr>
+			<th>Scrapped Vehicle Id</th>
+			<th> User Name</th>
+            <th>Vehicle</th>
+			<th>Amount</th>
+			
+		</tr>
+        {% for i in x %}
+		<tr style="height: 30px">
+			<td>{{ i.scrapped_vehicle_id }}</td>
+			<td>{{ i.user.username }}</td>
+            <td>{{ i.scrapped_vehicle.booking.vehicle.vehicle_name }}</td>
+			<td>{{ i.amount }}</td>
+        </tr>
+        {% endfor %}
+	</table>
+
+</body>
+</html>
+{% endblock %}

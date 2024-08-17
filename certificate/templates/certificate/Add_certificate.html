@@ -1,0 +1,48 @@
+{% extends 'temp/RTO_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RTO REGISTRATION</title>
+</head>
+<body>
+	<div style="height: 40px"></div>
+{#<form method="post">#}
+{#    {% csrf_token %}#}
+    {% if x  %}
+    {% for i in x %}
+	<table border="1" class="table table-bordered table-striped">
+		<tr>
+			<td>RTO Details</td>
+			<td><input type="text" name="no" readonly value="{{ i.rto.name }} - {{ i.rto.rto_office_name }}" required class="form-control" ></td>
+		</tr>
+        <tr>
+			<td>Certificate Number</td>
+			<td><input type="text" name="no" readonly value="{{ i.certificate_no }}" required class="form-control" ></td>
+		</tr>
+        <tr>
+			<td>Vehicle Number</td>
+			<td><input type="text" name="no" readonly value="{{ i.vehicle.vehicle_number }}" required class="form-control" ></td>
+		</tr>
+        <tr>
+			<td>Owner Name</td>
+			<td><input type="text" name="no" readonly value="{{ i.holder_name }}" required class="form-control" ></td>
+		</tr><tr>
+			<td>Issued Date</td>
+			<td><input type="text" name="no" readonly value="{{ i.issue_date }}" required class="form-control" ></td>
+		</tr>
+{#		<tr>#}
+			<td><a href="/scrapdealer_request/manage_scrapdealer_request/" class="btn btn-dark">Back</a> </td>
+{#		</tr>#}
+	</table>
+    {% endfor %}
+    {% else %}
+        <div>
+        <p>No Certificate issued</p>
+        <a href="/scrapdealer_request/manage_scrapdealer_request/" class="btn btn-dark">Back</a>
+        </div>
+    {% endif %}
+{#</form>#}
+</body>
+</html>
+{% endblock %}

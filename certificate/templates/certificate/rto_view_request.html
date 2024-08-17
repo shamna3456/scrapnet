@@ -1,0 +1,56 @@
+{% extends 'temp/RTO_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rto view certificate request</title>
+</head>
+<body>
+<h2> Certificate </h2>
+ <table border="1" class="table table-bordered table-striped">
+		<tr>
+			<th>User   </th>
+            <th>Owner Phone Number</th>
+			<th>vehicle</th>
+            <th>Type</th>
+			<th> Vehicle Number</th>
+			<th>Color</th>
+			<th>Model</th>
+			<th>Insurance</th>
+			<th>Mileage</th>
+			<th>Engine Number</th>
+            <th>Registration Date</th>
+			<th>Last Service Date </th>
+            <th>Expiry Date</th>
+			<th>photo</th>
+			<th>Pollution Certificate</th>
+			<th></th>
+		</tr>
+
+         {% for i in x %}
+		<tr>
+            <td>{{ i.user.username }}</td>
+            <td>{{ i.user.phone_number }}</td>
+            <td>{{ i.vehicle.vehicle_name}}</td>
+           <td>{{ i.vehicle.vehicle_type }}</td>
+			<td>{{ i.vehicle.vehicle_number }}</td>
+			<td>{{ i.vehicle.colour }}</td>
+			<td>{{ i.vehicle.model }}</td>
+			<td>{{ i.vehicle.insurance_details}}</td>
+			<td>{{ i.vehicle.mileage }}</td>
+			<td>{{ i.vehicle.engine_number}}</td>
+             <td>{{ i.vehicle.registration_date }}</td>
+			<td>{{ i.vehicle.last_service_date}}</td>
+            <td>{{ i.vehicle.expiry_date }}</td>
+            <td><a href="/static/{{ i.vehicle.photo }}"><img src="/static/{{ i.vehicle.photo }}"width="50px"height="100px"></a></td>
+            <td><a href="/static/{{ i.vehicle.pollution_certificate }}"><img src="/static/{{ i.vehicle.pollution_certificate }}"width="50px"height="100px" ></a></td>
+            <td>
+                <a href="/certificate/issue/{{ i.vehicle_id }}">Issue Certificate</a>
+			</td>
+		</tr>
+        {% endfor %}
+	</table>
+</body>
+</html>
+{% endblock %}

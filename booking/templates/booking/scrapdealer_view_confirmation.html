@@ -1,0 +1,40 @@
+{% extends 'temp/scrapdealer_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title> scrapdealer view confirmation</title>
+</head>
+<body>
+	<h2>  Confirmation</h2>
+	<table border="1" class="table table-bordered table-striped">
+		<tr>
+			<th>User Name</th>
+			<th> Vehicle Number</th>
+			<th>Vehicle Name</th>
+			<th>Date</th>
+			<th>Time</th>
+			<th>Status</th>
+			<th>Price</th>
+
+			<th></th>
+		</tr>
+        {% for i in x %}
+		<tr style="height: 30px">
+			<td>{{ i.user.name }}</td>
+			<td>{{ i.vehicle.vehicle_number }}</td>
+			<td>{{ i.vehicle.vehicle_name }}</td>
+			<td>{{ i.date }}</td>
+			<td>{{ i.time }}</td>
+			<td>{{ i.status }}</td>
+			<td>{{ i.request_response.price }}</td>
+			<td>
+				<a href="/scrapped_vehicle/send/{{ i.booking_id }}" onclick="return confirm('Are you sure?')" class="btn btn-warning">PAY</a>
+			</td>
+		</tr>
+        {% endfor %}
+	</table>
+
+</body>
+</html>
+{% endblock %}

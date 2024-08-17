@@ -1,0 +1,72 @@
+{% extends 'temp/RTO_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Manage Vehicle</title>
+</head>
+<body>
+	<h2>Manage Vehicle</h2>
+     <style>
+  table {
+    width: 40%;
+    margin: 0 auto;
+    border-collapse: collapse;
+  }
+  td, th {
+    padding: 2px;
+    border: 1px solid #ccc;
+  }
+</style>
+	<table border="1" class="table table-bordered" >
+
+
+		<tr>
+            <th>Type</th>
+			<th>Name</th>
+			<th>Number</th>
+			<th>Color</th>
+			<th>Model</th>
+			<th>Owner Name</th>
+			<th>Owner Phone Number</th>
+			<th>Insurance</th>
+			<th>Registration Date</th>
+			<th>Last Service Date </th>
+			<th>Mileage</th>
+			<th>Pollution Certificate</th>
+			<th>Engine Number</th>
+			<th>photo</th>
+			<th>Expiry Date</th>
+			<th>Status</th>
+			<th></th>
+		</tr>
+        {% for i in x %}
+		<tr>
+           <td>{{ i.vehicle_type }}</td>
+			<td>{{ i.vehicle_name }}</td>
+			<td>{{ i.vehicle_number }}</td>
+			<td>{{ i.colour }}</td>
+			<td>{{ i.model }}</td>
+			<td>{{ i.owner_name }}</td>
+			<td>{{ i.owner_contact }}</td>
+			<td>{{ i.insurance_details }}</td>
+			<td>{{ i.registration_date }}</td>
+			<td>{{ i.last_service_date }}</td>
+			<td>{{ i.mileage }}</td>
+			<td><a href="/static/{{ i.pollution_certificate }}"><img src="/static/{{ i.pollution_certificate }}"width="50px"height="100px"></a>  </td>
+			<td>{{ i.engine_number }}</td>
+            <td><a href="/static/{{ i.photo }}"><img src="/static/{{ i.photo }}"width="50px" height="100px"></a></td>
+			<td>{{ i.expiry_date }}</td>
+
+			<td>{{ i.status }}</td>
+			<td>
+				<a href="/vehicle/approve/{{ i.vehicle_id }}">Approval</a>
+				<a href="/vehicle/reject/{{ i.vehicle_id }}">Reject</a>
+			</td>
+		</tr>
+        {% endfor %}
+	</table>
+
+</body>
+</html>
+{% endblock %}

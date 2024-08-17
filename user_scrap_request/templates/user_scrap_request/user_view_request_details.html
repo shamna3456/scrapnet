@@ -1,0 +1,33 @@
+{% extends 'temp/user_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title> view request details</title>
+</head>
+<body>
+	<h2>  Request </h2>
+	<table border="1" class="table table-bordered table-striped">
+		<tr>
+			<th>Request Id</th>
+			<th> Vehicle Number</th>
+			<th>Vehicle Name</th>
+			<th>Status</th>
+			<th></th>
+		</tr>
+        {% for i in x %}
+		<tr style="height: 30px">
+			<td>{{ i.user_scrap_request_id }}</td>
+			<td>{{ i.vehicle.vehicle_number }}</td>
+			<td>{{ i.vehicle.vehicle_name }}</td>
+			<td>{{ i.request_status }}</td>
+			<td>
+				<a href="/request_responce/manage_responce/{{ i.user_scrap_request_id }}">View Responce</a>
+			</td>
+		</tr>
+        {% endfor %}
+	</table>
+
+</body>
+</html>
+{% endblock %}

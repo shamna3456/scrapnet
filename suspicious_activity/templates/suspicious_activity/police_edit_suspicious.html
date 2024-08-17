@@ -1,0 +1,51 @@
+{% extends 'temp/police_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>police suspicious activity</title>
+</head>
+<body>
+
+<form method="post">
+    {% csrf_token %}
+	<table border="1px" class="table table-bordered table-striped">
+	<tr>
+		<td>case no</td>
+		<td><input type="text" name="num" value="{{ x.case_no }}" required class="form-control"></td>
+	</tr>
+	<tr>
+		<td>case details</td>
+		<td>
+            <select name="details">
+                <option value="Robberies">Robberies</option>
+                <option value="traffic">Traffic Violence</option>
+                <option value="hit">Hit and Run</option>
+                <option value="vin">Altered VIN(vehicle identification number)</option>
+                <option value="num">Removed licence plate</option>
+                <option value="loan">Loan Fraud</option>
+                <option value="insure">Insurance Scam</option>
+                <option value="stole">Stolen Goods Storage</option>
+                <option value="murder">Murdering</option>
+                <option value="drug">Drug Trafficking</option>
+                <option value="owner">Multiple Ownership</option>
+            </select>
+
+        </td>
+	</tr>
+	<tr>
+		<td>case date</td>
+		<td><input type="date" name="date" value="{{ x.case_date|date:'Y-m-d'}}" required class="form-control"></td>
+	</tr>
+{#         <tr>#}
+{#        <td>Vehicle Photo</td>#}
+{#        <td><input type="file" name="photo"></td>#}
+{#    </tr>#}
+	<tr>
+		<td><input type="submit" value="Edit"></td>
+	</tr>
+	</table>
+	</form>
+</body>
+</html>
+{% endblock %}

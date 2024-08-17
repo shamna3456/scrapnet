@@ -1,0 +1,116 @@
+{% extends 'temp/scrapdealer_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<center>
+		<form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+			<h1 class="text-uppercase text-primary mb-4">PRICE PREDICTION</h1>
+			<table>
+
+                <tr>
+					<td style="color: black">Manufacturer</td>
+					<td><select name="q1" class="form-control">
+                        <option value="1">LEXUS</option>
+                        <option value="2">CHEVROLET</option>
+                        <option value="3">HONDA</option>
+                        <option value="4">FORD</option>
+                        <option value="5">HYUNDAI</option>
+                        <option value="6">TOYOTA</option>
+                    </select></td>
+				</tr>
+				<tr>
+					<td style="color: black">Model</td>
+					<td><select name="q2" class="form-control">
+                        <option value="1">RX 450</option>
+                        <option value="2">Equinox</option>
+                        <option value="3">FIT</option>
+                        <option value="4">Escape</option>
+                        <option value="5">Santa FE</option>
+                        <option value="6">Prius</option>
+                    </select></td>
+				</tr>
+                <tr>
+					<td style="color: black">Manufacture Year</td>
+					<td><select name="q3" class="form-control">
+                        <option value="1">1960-1970</option>
+                        <option value="2">1971-1980</option>
+                        <option value="3">1981-1990</option>
+                        <option value="4">1991-2000</option>
+                        <option value="5">2001-2010</option>
+                        <option value="6">2011-2020</option>
+                        <option value="6">2021-2030</option>
+                    </select></td>
+				</tr>
+				<tr>
+					<td style="color: black">Leather Interiors</td>
+					<td><select name="q4" class="form-control">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+
+                    </select></td>
+				</tr>
+				<tr>
+					<td style="color: black">Fuel Type</td>
+					<td><select name="q5" class="form-control">
+                        <option value="0">Petrol</option>
+                        <option value="1">Diesel</option>
+                        <option value="2">Hybrid</option>
+                        <option value="3">Others</option>
+
+                    </select></td>
+				</tr>
+                <tr>
+					<td style="color: black">Gear Type</td>
+					<td><select name="q6" class="form-control">
+                        <option value="1">Manual</option>
+                        <option value="2">Variator</option>
+                        <option value="3">Automatic</option>
+                        <option value="4">Tiptronic</option>
+
+                    </select></td>
+				</tr>
+                <tr>
+					<td style="color: black">Wheel</td>
+                    <td><select name="q7" class="form-control">
+                        <option value="0">Left</option>
+                        <option value="1">Right</option>
+
+                    </select></td>
+				</tr>
+                <tr>
+					<td style="color: black">Colour</td>
+					<td><select name="q8" class="form-control">
+                        <option value="1">Silver</option>
+                        <option value="2">Black</option>
+                        <option value="3">Blue</option>
+                        <option value="4">Red</option>
+                        <option value="5">White</option>
+                        <option value="6">other</option>
+                    </select></td>
+				</tr>
+                 <tr>
+					<td style="color: black">Category</td>
+                    <td><select name="q9" class="form-control">
+                        <option value="1">Jeep</option>
+                        <option value="2">Car</option>
+                        <option value="3">Other</option>
+
+                    </select></td>
+				</tr>
+					<tr>
+						<td></td>
+						<td><input type="submit" name="request" value="Predict" class="btn btn-outline-primary"></td>
+					</tr>
+			</table>
+		</form>
+	</center>
+
+</body>
+</html>
+{% endblock %}

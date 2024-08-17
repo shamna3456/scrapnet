@@ -1,0 +1,37 @@
+{% extends 'temp/user_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title> view request responce</title>
+</head>
+<body>
+	<h2>  request responce</h2>
+	<table border="1" class="table table-bordered table-striped">
+		<tr>
+
+			<th> Scrap Dealer Name</th>
+            <th> Address</th>
+			<th>Responce Details</th>
+			<th>Price</th>
+			<th></th>
+		</tr>
+        {% for i in x %}
+		<tr>
+
+			<td>{{ i.scrapdealer.name }}</td>
+        <td>{{ i.scrapdealer.place }}</td>
+			<td>{{ i.responce_details }}</td>
+			<td>{{ i.price }}</td>
+            {% if i.status == 'pending' %}
+			<td>
+			<button><a href="/request_responce/confirm/{{ i.request_responce_id }}">confirm</a></button>
+			</td>
+        {% endif %}
+		</tr>
+        {% endfor %}
+	</table>
+
+</body>
+</html>
+{% endblock %}

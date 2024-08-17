@@ -1,0 +1,33 @@
+{% extends 'temp/scrapdealer_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Manage Suspicious Activity</title>
+</head>
+<body>
+	<h2>Manage Suspicious Activity</h2>
+	<table border="1" class="table table-bordered table-striped">
+		<tr>
+			<th>Case Number</th>
+			<th>Case Details</th>
+			<th>Case Date</th>
+            <th>vehicle no:</th>
+            <th>owner name</th>
+
+			<th></th>
+		</tr>
+        {% for i in x %}
+		<tr>
+			<td>{{ i.case_no }}</td>
+			<td>{{ i.case_details }}</td>
+			<td>{{ i.case_date }}</td>
+            <td>{{ i.vehicle.vehicle_number }}</td>
+            <td>{{ i.vehicle.owner_name }}</td>
+		</tr>
+        {% endfor %}
+	</table>
+
+</body>
+</html>
+{% endblock %}

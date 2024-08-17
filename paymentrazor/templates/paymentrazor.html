@@ -1,0 +1,53 @@
+<!-- payment/templates/payment/payment_form.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Razorpay Payment Form</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+    <h1>Razorpay Payment Form</h1>
+    <form id="paymentForm">
+        <!-- Add your form fields here (e.g., amount, name, email) -->
+        <input type="hidden" name="amount" value="{{ amt }}"> <!-- Amount in paise (100 paise = 1 INR) -->
+        <input type="hidden" name="currency" value="INR">
+        <input type="submit" value="Pay Amound">
+    </form>
+
+    <script>
+        var razorpay_key = "{{ razorpay_key }}"; // Replace with your Razorpay API Key
+
+        $(document).ready(function () {
+            $('#paymentForm').submit(function (e) {
+                e.preventDefault();
+
+                var options = {
+                    key: razorpay_key,
+                    amount: $('#paymentForm input[name="amount"]').val(),
+                    currency: $('#paymentForm input[name="currency"]').val(),
+                    name: 'Your Company Name',
+                    description: 'Payment for your product/service',
+                    image: 'your_logo_url.png',
+                    handler: function (response) {
+                        $.ajax({
+                            url:'/paymentrazor/post_pay/',
+                            data:{
+                                'fxid':"aa",
+
+                            },
+                            success:function (data) {
+                                //alert('Cylinder Removed')
+                            }
+                        })
+                        alert('Payment successful! Payment ID: ' + response.razorpay_payment_id);
+                    },
+                };
+
+                var rzp = new Razorpay(options);
+                rzp.open();
+            });
+        });
+    </script>
+</body>
+</html>

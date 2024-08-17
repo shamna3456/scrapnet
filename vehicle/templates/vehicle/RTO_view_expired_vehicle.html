@@ -1,0 +1,58 @@
+{% extends 'temp/RTO_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>rto view expired Vehicle</title>
+</head>
+<body>
+	<h2>  Expired Vehicle</h2>
+	<table border="1" class="table table-bordered table-striped">
+		<tr>
+            <th>Type</th>
+			<th>Name</th>
+			<th>Number</th>
+			<th>Color</th>
+			<th>Model</th>
+			<th>Insurance</th>
+			<th>Mileage</th>
+			<th>Engine Number</th>
+            <th>Owner Name</th>
+			<th>Owner Phone Number</th>
+            <th>Registration Date</th>
+			<th>Last Service Date </th>
+            <th>Expiry Date</th>
+			<th>photo</th>
+			<th>Pollution Certificate</th>
+			<th></th>
+		</tr>
+
+         {% for i in x %}
+		<tr>
+           <td>{{ i.vehicle_type }}</td>
+			<td>{{ i.vehicle_name }}</td>
+			<td>{{ i.vehicle_number }}</td>
+			<td>{{ i.colour }}</td>
+			<td>{{ i.model }}</td>
+			<td>{{ i.insurance_details }}</td>
+			<td>{{ i.mileage }}</td>
+			<td>{{ i.engine_number }}</td>
+            <td>{{ i.owner_name }}</td>
+			<td>{{ i.owner_contact }}</td>
+             <td>{{ i.registration_date }}</td>
+			<td>{{ i.last_service_date }}</td>
+            <td>{{ i.expiry_date }}</td>
+            <td><a href="/static/{{ i.photo }}"><img src="/static/{{ i.photo }}"width="50px"height="100px"></a></td>
+            <td><a href="/static/{{ i.pollution_certificate }}"><img src="/static/{{ i.pollution_certificate }}"width="50px"height="100px" ></a></td>
+
+
+			<td>
+                <a href="/certificate/post/{{ i.vehicle_id }}" class="btn btn-warning">Issue Certificate</a>
+			</td>
+		</tr>
+        {% endfor %}
+	</table>
+
+</body>
+</html>
+{% endblock %}

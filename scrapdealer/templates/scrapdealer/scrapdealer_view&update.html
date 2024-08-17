@@ -1,0 +1,54 @@
+{% extends 'temp/scrapdealer_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>scrapdealer view and update</title>
+</head>
+<body>
+<h2 style="text-align: center;color: orange">PROFILE</h2>
+	<div style="height: 40px"></div>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+	<table border="1" class="table table-bordered table-striped">
+		<tr>
+			<td>Name</td>
+			<td><input type="text" name="name" value="{{ x.name }}"required class="form-control"></td>
+		</tr>
+		
+		<tr>
+			<td>Place</td>
+			<td><input type="text" name="place" value="{{ x.place }}" required class="form-control"></td>
+		</tr>
+
+		<tr>
+			<td>Phone</td>
+			<td><input type="text" name="phone" value="{{ x.phone }}" required class="form-control"></td>
+		</tr>
+		<tr>
+			<td>Email:</td>
+			<td><input type="Email" name="mail" value="{{ x.email }}" required class="form-control"></td>
+		</tr>
+        <tr>
+			<td>Licence</td>
+			<td><input type="file" name="licence" value="{{ x.lisence }}" required class="form-control"></td>
+		</tr>
+		<tr>
+			<td>Start Time</td>
+			<td><input type="time" name="stime" value="{{ x.start_time|time:'H:i'}}" required class="form-control"></td>
+		</tr>
+		<tr>
+			<td>End Time:</td>
+			<td><input type="time" name="etime" value="{{ x.end_time|time:'H:i'}}" required class="form-control"></td>
+		</tr>
+          <tr>
+			<td>Service Provided:</td>
+			<td><input type="text" name="service"  value="{{ x.service_provided }}" required class="form-control"></td>
+		</tr>
+
+	</table>
+    <input type="submit" value="update" class="btn btn-warning" style="margin-left: 400px">
+</form>
+</body>
+</html>
+{% endblock %}

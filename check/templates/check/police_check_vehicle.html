@@ -1,0 +1,34 @@
+{% extends 'temp/police_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>police check vehicles on the road and sent msg for scrapping</title>
+</head>
+<body>
+ <h2> Check Vehicle</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <table border="1" class="table table-borderless table-striped">
+                <tr>
+                    <td>
+                        Vehicle Number
+                    </td>
+                    <td>
+                        <input type="text" name="vno" required class="form-control" >
+                    </td>
+{#                </tr>#}
+{#                <tr>#}
+{#                    <td></td>#}
+                    <td>
+                        <input type="submit" value="Check" class="btn btn-success">
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+
+</body>
+</html>
+{% endblock %}

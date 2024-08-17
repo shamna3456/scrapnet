@@ -1,0 +1,31 @@
+{% extends 'temp/user_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title> view paymnet</title>
+</head>
+<body>
+	<h2 style="color: orange;text-align: center">  PAYMENT</h2>
+	<table border="1" class="table table-bordered">
+		<tr>
+			<th>Scrapped Vehicle </th>
+			<th>Scrap Dealer Name</th>
+			<th>Amount</th>
+
+			<th>Status</th>
+		</tr>
+        {% for i in x %}
+		<tr style="height: 30px">
+			<td>{{i.scrapped_vehicle.booking.vehicle.vehicle_name}}</td>
+			<td>{{ i.scrapdealer.name }}</td>
+			<td>{{ i.amount }}</td>
+
+			<td>{{ i.status }}</td>
+		</tr>
+        {% endfor %}
+	</table>
+
+</body>
+</html>
+{% endblock %}

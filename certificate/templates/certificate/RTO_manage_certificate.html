@@ -1,0 +1,33 @@
+{% extends 'temp/RTO_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>rto manage certificate</title>
+</head>
+<body>
+	<h2> manage certificate</h2>
+	<table border="1" class="table table-bordered">
+		<tr>
+			<th>Holder Name</th>
+			<th>Issue Date</th>
+			<th>Vehicle Number</th>
+			<th>Certificate Number</th>
+			<th></th>
+		</tr>
+        {% for i in x %}
+		<tr>
+			<td>{{ i.holder_name }}</td>
+			<td>{{ i.issue_date }}</td>
+			<td>{{ i.vehicle_no }}</td>
+			<td>{{ i.certificate_no }}</td>
+			<td>
+				<a href="/certificate/delete/{{ i.certificate_id }}">Delete</a>
+			</td>
+		</tr>
+        {% endfor %}
+	</table>
+
+</body>
+</html>
+{% endblock %}

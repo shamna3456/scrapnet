@@ -1,0 +1,32 @@
+{% extends 'temp/user_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title> view certificate</title>
+</head>
+<body>
+	<h2>  view certificate</h2>
+	<table border="1" class="table table-bordered">
+		<tr>
+			<th>RTO Name</th>
+			<th> Holder Name</th>
+			<th>Issue Date</th>
+			<th>Vehicle Number</th>
+			<th>Certificate Number</th>
+		</tr>
+        {% for i in x %}
+		<tr style="height: 30px">
+			<td>{{ i.rto.name}}</td>
+			<td>{{ i.holder_name }}</td>
+			<td>{{ i.issue_date }}</td>
+			<td>{{ i.vehicle_no }}</td>
+			<td>{{ i.certificate_no }}</td>
+            <td><a href="/certificate/download/{{ i.certificate_id }}">Download</a> </td>
+		</tr>
+        {% endfor %}
+	</table>
+
+</body>
+</html>
+{% endblock %}

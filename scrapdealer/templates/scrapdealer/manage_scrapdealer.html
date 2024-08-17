@@ -1,0 +1,47 @@
+{% extends 'temp/admin_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Manage ScrapDealer</title>
+</head>
+<body>
+	<h2 style="color: orange;text-align: center">Manage Scrapdealer </h2>
+	<table border="1" class="table table-bordered table-striped">
+		<tr>
+			<th>Name</th>
+			<th>Place</th>
+			<th>Phone</th>
+			<th>Email</th>
+            <th>Licence</th>
+			<th>User Name</th>
+			<th>Start Time</th>
+			<th>End Time</th>
+			<th>Service Provided</th>
+            <th>status</th>
+			<th></th>
+		</tr>
+        {% for i in x %}
+		<tr>
+			<td>{{ i.name }}</td>
+			<td>{{ i.place }}</td>
+			<td>{{ i.phone }}</td>
+			<td>{{ i.email }}</td>
+            <td><a href="/static/{{ i.lisence }}"><img src="/static/{{ i.lisence }}"width="50px"height="100px" ></a></td>
+			<td>{{ i.username }}</td>
+			<td>{{ i.start_time }}</td>
+			<td>{{ i.end_time }}</td>
+			<td>{{ i.service_provided }}</td>
+            <td>{{ i.status }}</td>
+			<td>
+				<a href="/scrapdealer/approve/{{ i.scrapdealer_id }}">Approval</a>
+				<a href="/scrapdealer/reject/{{ i.scrapdealer_id }}">Reject</a>
+                <a href="/scrapdealer/delete/{{ i.scrapdealer_id }}">Delete</a>
+			</td>
+		</tr>
+        {% endfor %}
+	</table>
+
+</body>
+</html>
+{% endblock %}

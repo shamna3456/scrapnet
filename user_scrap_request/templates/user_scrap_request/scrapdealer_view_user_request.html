@@ -1,0 +1,50 @@
+{% extends 'temp/scrapdealer_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>  View User Request</title>
+</head>
+<body>
+	<h2>  User Request</h2>
+	<table border="1" class="table table-bordered table-striped table-responsive">
+		<tr>
+			<th>User Name</th>
+			<th> Vehicle </th>
+			<th>Date</th>
+			<th>Time</th>
+			<th>Request Status</th>
+			<th>Photo 1</th>
+			<th>Photo 2</th>
+			<th>Photo 3</th>
+			<th>Photo 4</th>
+			<th>Certificate Number</th>
+			<td></td>
+		</tr>
+        {% for i in x %}
+		<tr style="height: 30px">
+			<td>{{ i.user.name }}</td>
+			<td>{{ i.vehicle.vehicle_name }}</td>
+			<td>{{ i.date }}</td>
+			<td>{{ i.time }}</td>
+			<td>{{i.request_status }}</td>
+			<td><a href="/static/{{ i.photo_side1 }}"><img src="/static/{{ i.photo_side1 }}" width="100px" height="100px"></a> </td>
+			<td><a href="/static/{{ i.photo_side2 }}"><img src="/static/{{ i.photo_side2 }}" width="100px" height="100px"></a></td>
+			<td><a href="/static/{{ i.photo_side3 }}"><img src="/static/{{ i.photo_side3 }}" width="100px" height="100px"></a></td>
+			<td><a href="/static/{{ i.photo_side4 }}"><img src="/static/{{ i.photo_side4 }}" width="100px" height="100px"></a></td>
+			<td>{{ i.certificate_no}}</td>
+			<td>
+                <a href="/vehicle/details/{{ i.user_scrap_request_id }}" class="btn btn-sm btn-warning">View more details</a> <br>
+				<a href="/scrapdealer_request/post_scrap/{{ i.user_scrap_request_id }}" class="btn btn-sm btn-info">Forward to RTO</a> <br>
+                <a href="/scrapdealer_request/sd_view_req/{{ i.user_scrap_request_id }} " class="btn btn-sm btn-warning">View RTO Responce</a><br>
+				<a href="/suspicious_activity/scrap_suspicious/{{ i.user_scrap_request_id }}" class="btn btn-sm btn-info">Check Suspicious Activity</a> <br>
+				<a href="/request_responce/post_resp/{{ i.user_scrap_request_id }}" class="btn btn-sm btn-warning">Send Information</a>
+			</td>
+
+		</tr>
+        {% endfor %}
+	</table>
+
+</body>
+</html>
+{% endblock %}

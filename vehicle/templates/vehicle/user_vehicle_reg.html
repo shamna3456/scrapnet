@@ -1,0 +1,103 @@
+{% extends 'temp/user_home.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>USER VEHICLE REGISTRATION</title>
+</head>
+<body>
+<h2 style="color: orange;text-align: center"><b>REGISTER</b></h2>
+	<div style="height: 40px"></div>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+	<table border="1" class="table table-bordered table-striped">
+        <tr>
+            <td>Vehicle Type</td>
+            <td>
+                <select name="type">
+                    <option value="Car">Car</option>
+                    <option value="Bike">Bike</option>
+                    <option value="truck">Truck</option>
+                    <option value="auto">Auto</option>
+                    <option value="bus">Bus</option>
+                </select>
+            </td>
+        </tr>
+		<tr>
+			<td>Vehicle Name</td>
+			<td><input type="text" name="name" required class="form-control"></td>
+		</tr>
+		<tr>
+			<td>Vehicle Number</td>
+			<td><input type="text" name="num" required class="form-control"></td>
+		</tr>
+		<tr>
+			<td>Colour</td>
+			<td><input type="text" name="clr" required class="form-control"></td>
+		</tr>
+		<tr>
+			<td>Model</td>
+			<td><input type="text" name="model" required class="form-control"></td>
+		</tr>
+
+		<tr>
+			<td>Insurence Details</td>
+{#			<td><input type="text" name="insurence"></td>#}
+            <td>
+            <select name="insurence">
+                    <option value="enhancement">Enhancement</option>
+                    <option value="liability">Liability</option>
+                    <option value="own damage">Own Damage</option>
+                    <option value="comprehensive">Comprehensive</option>
+                    <option value="depreciation">Zero Depreciation </option>
+                    <option value="engine">Engine Protection </option>
+                </select>
+            </td>
+		</tr>
+
+		<tr>
+			<td>Mileage</td>
+			<td><input type="text" name="mileage" required class="form-control"></td>
+		</tr>
+
+		<tr>
+			<td>Engine Number</td>
+			<td><input type="text" name="engine" required class="form-control"></td>
+		</tr>
+
+        <tr>
+			<td>Owner Name</td>
+			<td><input type="text" name="ownernum" required class="form-control"></td>
+		</tr>
+		<tr>
+			<td>Owner Contact:</td>
+			<td><input type="text" name="ownercon" required class="form-control"></td>
+		</tr>
+        <tr>
+			<td>Registration Date</td>
+			<td><input type="date" name="reg" required class="form-control"></td>
+		</tr>
+		<tr>
+			<td>Last Service Date</td>
+			<td><input type="date" name="date" required class="form-control"></td>
+		</tr>
+        <tr>
+			<td>Expiry Date</td>
+			<td><input type="date" name="expiry" required class="form-control"></td>
+		</tr>
+		<tr>
+			<td>Photo</td>
+			<td><input type="file" name="photo" required class="form-control"></td>
+		</tr>
+        <tr>
+			<td>Pollution Certificate</td>
+			<td><input type="file" name="certi" required class="form-control"></td>
+		</tr>
+
+
+	</table>
+    <a href="/vehicle/manage_user_vehicle_expiry/"><input type="submit" value="submit" class="btn btn-outline-primary" style="margin-left: 400px;"></a>
+</form>
+</body>
+</html>
+{% endblock %}
